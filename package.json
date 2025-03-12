@@ -1,6 +1,6 @@
 {
   "name": "check-cas-number",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Check the validity of a CAS number (RN)",
   "main": "./lib/index.js",
   "module": "./lib-esm/index.js",
