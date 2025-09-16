@@ -1,15 +1,18 @@
-import type { Logger } from 'cheminfo-types';
+import type { CheckOptions } from './CheckOptions';
 
-interface CheckOptions {
-  logger?: Logger;
-}
-
+/**
+ * Checks if a CAS number is valid.
+ * A CAS number has the format XXXXXXXX-XX-X where X is a digit. The string can only contain the CAS number.
+ * @param cas
+ * @param options
+ * @returns
+ */
 export function check(cas: string, options: CheckOptions = {}) {
   const { logger } = options;
 
   if (!cas?.match(/[0-9]{2,8}-[0-9]{2}-[0-9]/)) {
     logger?.error(
-      'Invalid CAS number, the format does not match: XXXXXXXX-XX-X.',
+      `Invalid CAS number: ${cas}, the format does not match: XXXXXXXX-XX-X.`,
     );
     return false;
   }
@@ -23,7 +26,9 @@ export function check(cas: string, options: CheckOptions = {}) {
 
   // is it larger than 50000 ?
   if (Number.parseInt(cas.replaceAll('-', ''), 10) < 50000) {
-    logger?.error('Invalid CAS number, the number is smaller than 50-00-0.');
+    logger?.error(
+      `Invalid CAS number: ${cas}, the number is smaller than 50-00-0.`,
+    );
     return false;
   }
 
@@ -31,7 +36,7 @@ export function check(cas: string, options: CheckOptions = {}) {
   const checkDigit = sum % 10;
   if (checkDigit !== Number.parseInt(cas.slice(-1), 10)) {
     logger?.error(
-      `Invalid CAS number, the check digit does not match. Expected: ${
+      `Invalid CAS number: ${cas}, the check digit does not match. Expected: ${
         checkDigit
       } but got: ${cas.slice(-1)}.`,
     );
