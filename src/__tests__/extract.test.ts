@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 
-import { extract } from '..';
+import { extract } from '../index.js';
 
 test('validate-cas-number', () => {
   expect(extract('')).toBeNull();

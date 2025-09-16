@@ -1,7 +1,7 @@
 import { FifoLogger } from 'fifo-logger';
 import { expect, test } from 'vitest';
 
-import { check } from '..';
+import { check } from '../index.ts';
 
 test('check if the string is a cas number', () => {
   expect(check('')).toBe(false);

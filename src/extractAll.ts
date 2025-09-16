@@ -1,5 +1,5 @@
-import type { CheckOptions } from './CheckOptions';
-import { check } from './check';
+import type { CheckOptions } from './CheckOptions.js';
+import { check } from './check.js';
 
 /**
  * This method extracts the first CAS number from a string. A cas number is something

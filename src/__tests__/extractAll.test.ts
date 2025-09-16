@@ -1,7 +1,7 @@
 import { FifoLogger } from 'fifo-logger';
 import { expect, test } from 'vitest';
 
-import { extractAll } from '..';
+import { extractAll } from '../index.js';
 
 test('validate-cas-number', () => {
   const logger = new FifoLogger();
@@ -25,7 +25,7 @@ test('validate-cas-number', () => {
   const logs = logger.getLogs();
 
   expect(logs).toHaveLength(1);
-  expect(logs[0].message).toBe(
+  expect(logs[0]?.message).toBe(
     'Invalid CAS number: 5000-01-2, the check digit does not match. Expected: 1 but got: 2.',
   );
 

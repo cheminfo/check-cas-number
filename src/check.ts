@@ -1,4 +1,4 @@
-import type { CheckOptions } from './CheckOptions';
+import type { CheckOptions } from './CheckOptions.js';
 
 /**
  * Checks if a CAS number is valid.
@@ -21,6 +21,7 @@ export function check(cas: string, options: CheckOptions = {}) {
   const digits = cas.replaceAll('-', '');
 
   for (let i = digits.length - 2; i >= 0; i--) {
+    // @ts-expect-error we are sure that digits[i] exists
     sum = sum + Number.parseInt(digits[i], 10) * (digits.length - i - 1);
   }
 
