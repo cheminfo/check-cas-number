@@ -1,3 +1,3 @@
-export * from './check.js';
-export * from './extract.js';
-export * from './extractAll.js';
+export * from './check.ts';
+export * from './extract.ts';
+export * from './extractAll.ts';

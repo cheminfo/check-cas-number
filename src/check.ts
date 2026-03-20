@@ -1,11 +1,11 @@
-import type { CheckOptions } from './CheckOptions.js';
+import type { CheckOptions } from './CheckOptions.ts';
 
 /**
  * Checks if a CAS number is valid.
  * A CAS number has the format XXXXXXXX-XX-X where X is a digit. The string can only contain the CAS number.
- * @param cas
- * @param options
- * @returns
+ * @param cas - The CAS number string to validate.
+ * @param options - Options for validation, including an optional logger.
+ * @returns `true` if the CAS number is valid, `false` otherwise.
  */
 export function check(cas: string, options: CheckOptions = {}) {
   const { logger } = options;

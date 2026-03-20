@@ -1,7 +1,7 @@
 import { FifoLogger } from 'fifo-logger';
 import { expect, test } from 'vitest';
 
-import { extractAll } from '../index.js';
+import { extractAll } from '../index.ts';
 
 test('validate-cas-number', () => {
   const logger = new FifoLogger();
